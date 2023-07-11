@@ -30,7 +30,7 @@ jobs:
 
       - name: Get version number
         id: get_version
-        run: echo $(node -p "require('./package.json').version")
+        run: echo $(node -p "require('./package.json').version") >> $GITHUB_OUTPUT
 
       - name: Create release
         id: create_release
@@ -38,8 +38,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v${{ steps.get_version.outputs.stdout }}
-          files: dist/tournament-overlay-remote-*.exe
-          name: Release Version ${{ steps.get_version.outputs.stdout }}
+          tag_name: v${{ join(steps.get_version.outputs.*, '') }}
+          release_name: Release Version ${{ join(steps.get_version.outputs.*, '') }}
+          files: |
+            ./dist/*.exe
           draft: false
           prerelease: false
