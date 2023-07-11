@@ -22,25 +22,12 @@ jobs:
         with:
           node-version: 16
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build
-        run: npm run build:win
-
       - name: Get version number
         id: get_version
         run: echo $(node -p "require('./package.json').version") >> $GITHUB_OUTPUT
 
       - name: Create release
         id: create_release
-        uses: softprops/action-gh-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: v${{ join(steps.get_version.outputs.*, '') }}
-          release_name: Release Version ${{ join(steps.get_version.outputs.*, '') }}
-          files: |
-            ./dist/*.exe
-          draft: false
-          prerelease: false
+        run: |
+          echo "Creating release v${{ join(steps.get_version.outputs.*, '') }}"
+          echo "Release Version ${{ join(steps.get_version.outputs.*, '') }}"
