@@ -27,4 +27,4 @@ jobs:
         run: echo $(node -p "require('./package.json').version")
 
       - name: Ouput version number
-        run: echo ${{ steps.get_version.outputs.* }}
+        run: echo ${{ steps.get_version.outputs.stdout }}
