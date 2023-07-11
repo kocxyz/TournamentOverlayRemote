@@ -24,10 +24,7 @@ jobs:
 
       - name: Get version number
         id: get_version
-        run: echo $(node -p "require('./package.json').version") >> $GITHUB_OUTPUT
+        run: echo $(node -p "require('./package.json').version")
 
-      - name: Create release
-        id: create_release
-        run: |
-          echo "Creating release v${{ join(steps.get_version.outputs.*, '') }}"
-          echo "Release Version ${{ join(steps.get_version.outputs.*, '') }}"
+      - name: Ouput version number
+        run: echo ${{ steps.get_version.outputs.* }}
