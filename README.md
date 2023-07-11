@@ -1,34 +1,17 @@
-# tournament-overlay-remote
+# TournamentOverlayRemote
 
-An Electron application with React and TypeScript
+This programm works as a remote control for the [TournamentOverlay](https://github.com/kocxyz/TournamentOverlay).
+You can use it to control the overlay from your phone or another computer.
 
-## Recommended IDE Setup
+## Installation
 
-- [VSCode](https://code.visualstudio.com/) + [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+1. Download the latest release from [here](https://github.com/kocxyz/TournamentOverlayRemote/releases/latest)
+2. Run the executable
 
-## Project Setup
+## Usage
 
-### Install
-
-```bash
-$ npm install
-```
-
-### Development
-
-```bash
-$ npm run dev
-```
-
-### Build
-
-```bash
-# For windows
-$ npm run build:win
-
-# For macOS
-$ npm run build:mac
-
-# For Linux
-$ npm run build:linux
-```
+1. Head over to `https://overlay.koc.xyz` in your browser or add it as a browser source to your streaming software
+2. Open the remote on your phone or another computer
+3. Edit the url to `https://overlay.koc.xyz?remote=http://localhost:5000` (replace `http://localhost:5000` with the url of the machine running the remote)
+4. At the bottom of the remote app, open the dropdown and select one of the random strings (Socket IDs)
+5. Edit some of the properties and hit the refresh button next to the dropdown. The refresh button will send the data to the overlay
