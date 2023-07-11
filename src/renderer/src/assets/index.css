@@ -1,0 +1,59 @@
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.TopLevel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.topBar {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.dragBar {
+  -webkit-app-region: drag;
+  width: 100%;
+  height: 30px;
+}
+
+.section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.section .element {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 10px;
+}
+
+.section .element .title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.blue {
+  color: #00aaff;
+}
+
+.yellow {
+  color: #ffaa00;
+}
